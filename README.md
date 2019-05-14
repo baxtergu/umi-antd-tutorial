@@ -1,6 +1,6 @@
 English | [简体中文](./README.zh-CN.md)
 
-<h1 align="center">Ant Design Pro</h1>
+<h1 align="center">Umi Antd Tutorial</h1>
 
 <div align="center">
 
