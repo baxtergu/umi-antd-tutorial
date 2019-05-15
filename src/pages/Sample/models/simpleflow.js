@@ -13,7 +13,7 @@ export default {
   effects: {
     *submitRandomNumberRequest(_, { call, put }) {
       const result = yield call(queryRandomNumber);
-      message.success('提交成功');
+      message.success('DvaSolution Submitting Success');
       yield put({
         type: 'saveRandomNumber',
         payload: result,
