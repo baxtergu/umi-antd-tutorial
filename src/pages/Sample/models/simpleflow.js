@@ -1,4 +1,5 @@
 import { message } from 'antd';
+import { formatMessage } from 'umi/locale';
 import { queryRandomNumber } from '@/services/sample';
 
 export default {
@@ -13,7 +14,11 @@ export default {
   effects: {
     *submitRandomNumberRequest(_, { call, put }) {
       const result = yield call(queryRandomNumber);
-      message.success('DvaSolution Submitting Success');
+      message.success(
+        `DvaSolution: ${formatMessage({
+          id: 'messages.common.submit.success',
+        })}`
+      );
       yield put({
         type: 'saveRandomNumber',
         payload: result,

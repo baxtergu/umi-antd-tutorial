@@ -1,6 +1,8 @@
 import globalHeader from './zh-CN/globalHeader';
 import menu from './zh-CN/menu';
 import settings from './zh-CN/settings';
+import messages from './zh-CN/messages';
+import sample from './zh-CN/sample';
 
 export default {
   'navBar.lang': '语言',
@@ -11,4 +13,6 @@ export default {
   ...globalHeader,
   ...menu,
   ...settings,
+  ...sample,
+  ...messages,
 };

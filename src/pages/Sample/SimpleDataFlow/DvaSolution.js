@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
+import { formatMessage, FormattedMessage } from 'umi/locale';
 
 @connect(
   /**
@@ -29,9 +30,11 @@ class DvaSolution extends PureComponent {
     const { simpleflow, submitting } = this.props;
     return (
       <Fragment>
-        <h2>Random Number: {simpleflow.result}</h2>
+        <h2>
+          {formatMessage({ id: 'app.sample.simpleflow.responsenumber' })}: {simpleflow.result}
+        </h2>
         <Button loading={submitting} onClick={this.handleClick}>
-          Request Random Number
+          <FormattedMessage id="app.sample.simpleflow.submit" />
         </Button>
       </Fragment>
     );
