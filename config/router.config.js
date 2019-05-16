@@ -27,6 +27,12 @@ export default [
             icon: 'block',
             component: './Sample/SimpleDataFlow',
           },
+          {
+            path: '/sample/simpleform',
+            name: 'simple-form',
+            icon: 'block',
+            component: './Sample/SimpleForm',
+          },
         ],
       },
     ],

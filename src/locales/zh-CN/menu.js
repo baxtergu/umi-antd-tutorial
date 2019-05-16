@@ -3,6 +3,7 @@ export default {
   'menu.more-blocks': '更多区块',
   'menu.sample': '样例页',
   'menu.sample.simple-data-flow': '简单数据流',
+  'menu.sample.simple-form': '简单表单',
 
   'menu.account.center': '个人中心',
   'menu.account.settings': '个人设置',
