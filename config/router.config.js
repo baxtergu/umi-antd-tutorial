@@ -33,6 +33,12 @@ export default [
             icon: 'block',
             component: './Sample/SimpleForm',
           },
+          {
+            path: '/sample/simplesvg',
+            name: 'simple-svg',
+            icon: 'block',
+            component: './Sample/Svg',
+          },
         ],
       },
     ],

@@ -4,6 +4,7 @@ export default {
   'menu.sample': 'Samples',
   'menu.sample.simple-data-flow': 'Simple Data Flow',
   'menu.sample.simple-form': 'Simple Form',
+  'menu.sample.simple-svg': 'Simple SVG',
 
   'menu.account.center': 'Account Center',
   'menu.account.settings': 'Account Settings',
