@@ -9,6 +9,17 @@ export default {
       });
     }, 1000);
   },
+  'GET /api/sample/randomNumbers': (req, res) => {
+    const {
+      query: { count },
+    } = req;
+
+    setTimeout(() => {
+      res.send({
+        numbers: Array.from({ length: count }, () => Math.floor(Math.random() * 1000)),
+      });
+    }, 2000);
+  },
   'GET /api/sample/randomColor': (req, res) => {
     setTimeout(() => {
       res.send(color16());

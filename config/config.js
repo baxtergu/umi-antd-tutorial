@@ -34,6 +34,7 @@ export default {
       },
     ],
   ],
+  // extraBabelPlugins: [['import', { libraryName: 'echarts',"libraryDirectory": "lib" }]],
   targets: {
     ie: 11,
   },

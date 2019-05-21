@@ -39,6 +39,12 @@ export default [
             icon: 'block',
             component: './Sample/Svg',
           },
+          {
+            path: '/sample/simpleecharts',
+            name: 'simple-echarts',
+            icon: 'block',
+            component: './Sample/SimpleEcharts',
+          },
         ],
       },
     ],
