@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Card, Button } from 'antd';
 import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
@@ -19,6 +20,16 @@ import { ReactComponent as ExampleSvg } from './example.svg';
   })
 )
 class SimpleSvg extends PureComponent {
+  static propTypes = {
+    simplesvg: PropTypes.object.isRequired,
+    submitting: PropTypes.bool,
+    dispatch: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    submitting: false,
+  };
+
   handleClick = () => {
     const { dispatch } = this.props;
     dispatch({ type: 'simplesvg/submitRandomColorsRequest' });
