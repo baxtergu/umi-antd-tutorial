@@ -4,6 +4,7 @@ export default {
   'menu.sample': '样例页',
   'menu.sample.simple-data-flow': '简单数据流',
   'menu.sample.simple-form': '简单表单',
+  'menu.sample.simple-svg': '简单SVG操作',
 
   'menu.account.center': '个人中心',
   'menu.account.settings': '个人设置',

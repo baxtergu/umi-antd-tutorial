@@ -7,4 +7,13 @@ export async function queryRandomNumber() {
   return request('/api/sample/randomNumber');
 }
 
+export async function queryRandomColors() {
+  return Promise.all([
+    request('/api/sample/randomColor'),
+    request('/api/sample/randomColor'),
+    request('/api/sample/randomColor'),
+    request('/api/sample/randomColor'),
+  ]);
+}
+
 export default null;
