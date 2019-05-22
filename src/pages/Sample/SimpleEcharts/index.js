@@ -17,12 +17,13 @@ class SimpleEcharts extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    // 使用simplecharts中的weeklyData初始化echarts
-    this.echartsRenderer();
-    // 首次初始化后增加loading状态
+    // 初始化echarts实例
+    this.echartsInstance = echarts.init(this.echartsElement);
     this.echartsInstance.showLoading();
+
     // 以5秒间隔启动定时器
     this.timer = setInterval(() => {
+      this.echartsInstance.showLoading();
       dispatch({ type: 'simplecharts/submitRandomNumbersRequest', payload: 7 });
     }, 5000);
   }
@@ -42,7 +43,6 @@ class SimpleEcharts extends Component {
     const {
       simplecharts: { weeklyData },
     } = this.props;
-    this.echartsInstance = echarts.init(this.echartsElement);
 
     const option = {
       xAxis: {
