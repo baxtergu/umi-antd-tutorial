@@ -11,28 +11,38 @@ class SimpleEcharts extends Component {
   constructor(props) {
     super(props);
     this.echartsElement = null; // echarts div element
+    this.echartsInstance = null; // echarts instance
+    this.timer = null;
   }
 
   componentDidMount() {
-    const {
-      simplecharts: { weeklyData },
-      dispatch,
-    } = this.props;
-    this.echartsRenderer(weeklyData);
-    setInterval(() => {
+    const { dispatch } = this.props;
+    // 使用simplecharts中的weeklyData初始化echarts
+    this.echartsRenderer();
+    // 首次初始化后增加loading状态
+    this.echartsInstance.showLoading();
+    // 以5秒间隔启动定时器
+    this.timer = setInterval(() => {
       dispatch({ type: 'simplecharts/submitRandomNumbersRequest', payload: 7 });
-    });
+    }, 5000);
   }
 
   componentDidUpdate() {
-    this.echartsRenderer(); // props 改变后重新渲染
+    // props 改变后重新渲染
+    this.echartsRenderer();
+  }
+
+  componentWillUnmount() {
+    // 组件卸载时清除定时器
+    // TODO: 但是已发出的异步effects无法清除,需要使用saga的方式 cancel effects,后续再实现
+    clearInterval(this.timer);
   }
 
   echartsRenderer = () => {
     const {
       simplecharts: { weeklyData },
     } = this.props;
-    const myChart = echarts.init(this.echartsElement);
+    this.echartsInstance = echarts.init(this.echartsElement);
 
     const option = {
       xAxis: {
@@ -49,7 +59,8 @@ class SimpleEcharts extends Component {
         },
       ],
     };
-    myChart.setOption(option, true);
+    this.echartsInstance.setOption(option, true);
+    this.echartsInstance.hideLoading();
   };
 
   render() {
