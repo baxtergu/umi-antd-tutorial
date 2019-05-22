@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
 import { formatMessage, FormattedMessage } from 'umi/locale';
+import PropTypes from 'prop-types';
 
 @connect(
   /**
@@ -18,6 +19,20 @@ import { formatMessage, FormattedMessage } from 'umi/locale';
 )
 // 由于 props 层级不深，使用了 PureComponent 而没有使用 Component
 class DvaSolution extends PureComponent {
+  // 定义组件的静态属性 propTypes，用于 props 对象中第一层对象使用 'prop-types' 进行运行时类型检测
+  // 一般用于纯展示组件
+  static propTypes = {
+    simpleflow: PropTypes.object.isRequired,
+    submitting: PropTypes.bool,
+    dispatch: PropTypes.func.isRequired,
+  };
+
+  // 组件的 defaultProps 属性用作当 props 中不存在指定的属性时，用这个属性来替代
+  // 以静态属性方式来定义
+  static defaultProps = {
+    submitting: false,
+  };
+
   // 点击按钮时触发的方法，只做 dispatch 操作，将副作用交由 redux-saga 处理。
   handleClick = () => {
     const { dispatch } = this.props;
@@ -27,7 +42,7 @@ class DvaSolution extends PureComponent {
   };
 
   render() {
-    const { simpleflow, submitting } = this.props;
+    const { simpleflow, submitting = false } = this.props;
     return (
       <Fragment>
         <h2>

@@ -7,6 +7,10 @@ export async function queryRandomNumber() {
   return request('/api/sample/randomNumber');
 }
 
+export async function queryRandomNumbers(num) {
+  return request('/api/sample/randomNumbers', { params: { count: num } });
+}
+
 export async function queryRandomColors() {
   return Promise.all([
     request('/api/sample/randomColor'),
